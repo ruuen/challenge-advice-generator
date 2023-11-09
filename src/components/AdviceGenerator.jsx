@@ -33,7 +33,9 @@ function AdviceGenerator() {
           <img src={imgDivider} alt="" className="generator__divider-img" />
         </picture>
       </div>
-      <Button />
+      <div className="generator__action-buttons">
+        <Button />
+      </div>
     </article>
   );
 }

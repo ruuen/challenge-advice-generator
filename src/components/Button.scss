@@ -1,0 +1,16 @@
+@use "../variables.scss" as var;
+
+.generator__button {
+  border: none;
+  cursor: pointer;
+
+  border-radius: 50%;
+  background: var.$clr-green;
+  padding: 1.25em;
+  transition: box-shadow 200ms ease-out;
+
+  &:hover {
+    box-shadow: 0px 0px 22px 9px rgba(83, 255, 170, 0.15),
+      0px 0px 22px 14px rgba(83, 255, 170, 0.1);
+  }
+}

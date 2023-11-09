@@ -1,3 +1,4 @@
+import "./Button.scss";
 import imgDiceIcon from "../assets/icon-dice.svg";
 
 // Reusable submit/search button
