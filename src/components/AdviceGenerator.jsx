@@ -30,7 +30,13 @@ function AdviceGenerator() {
       <AdviceDisplay adviceSlips={adviceSlips} />
       <div className="generator__divider">
         <picture>
-          <img src={imgDivider} alt="" className="generator__divider-img" />
+          <img
+            src={imgDivider}
+            alt=""
+            className="generator__divider-img"
+            width="295"
+            height="16"
+          />
         </picture>
       </div>
       <div className="generator__action-buttons">
