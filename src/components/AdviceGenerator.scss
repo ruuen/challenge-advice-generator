@@ -1,21 +1,19 @@
 @use "../variables.scss" as var;
 
 .generator {
+  $padding-y-scale: clamp(2.75em, 9.5%, 3.25em);
+  $padding-x-scale: clamp(1.5em, 6.25vw, 3.25em);
+  padding: $padding-y-scale $padding-x-scale 1.5em $padding-x-scale;
+
   background-color: var.$clr-grey-dark;
-  // TODO: Scale padding of advice generator container when reviewing desktop layout,
-  //            otherwise adjust via mediaqry.
-  //            Maybe a cheeky little container query test would be worth a learn here?
-  padding: 2.75em 1.5em 1.5em 1.5em;
   border-radius: 0.625em;
   max-width: 550px;
   margin: 0 auto;
 }
 
 .generator__divider-img {
-  padding: 1.5em 0;
-  width: 100%;
+  padding: clamp(1.5em, 8.5%, 2.25em) 0;
   height: auto;
-  max-width: 450px;
   margin: 0 auto;
 }
 
