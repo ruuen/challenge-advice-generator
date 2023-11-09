@@ -1,6 +1,8 @@
 import AdviceDisplay from "./AdviceDisplay";
 import Button from "./Button";
-import imgDivider from "../assets/pattern-divider-mobile.svg";
+import "./AdviceGenerator.scss";
+import imgDividerMobile from "../assets/pattern-divider-mobile.svg";
+import imgDividerDesktop from "../assets/pattern-divider-desktop.svg";
 import { useState } from "react";
 
 // State is an array of advice slips to allow adding search functionality
@@ -29,10 +31,24 @@ function AdviceGenerator() {
       <AdviceDisplay adviceSlips={adviceSlips} />
       <div className="generator__divider">
         <picture>
-          <img src={imgDivider} alt="" className="generator__divider-img" />
+          <source
+            media="(min-width: 37.5rem)"
+            srcSet={imgDividerDesktop}
+            width="444"
+            height="16"
+          />
+          <img
+            src={imgDividerMobile}
+            alt=""
+            className="generator__divider-img"
+            width="295"
+            height="16"
+          />
         </picture>
       </div>
-      <Button />
+      <div className="generator__action-buttons">
+        <Button />
+      </div>
     </article>
   );
 }

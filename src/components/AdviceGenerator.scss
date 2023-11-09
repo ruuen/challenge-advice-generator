@@ -1,0 +1,26 @@
+@use "../variables.scss" as var;
+
+.generator {
+  $padding-y-scale: clamp(2.75em, 9.5%, 3.25em);
+  $padding-x-scale: clamp(1.5em, 6.25vw, 3.25em);
+  padding: $padding-y-scale $padding-x-scale 1.5em $padding-x-scale;
+
+  background-color: var.$clr-grey-dark;
+  border-radius: 0.625em;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.generator__divider-img {
+  padding: clamp(1.5em, 8.5%, 2.25em) 0;
+  height: auto;
+  margin: 0 auto;
+}
+
+.generator__action-buttons {
+  margin: -3em auto 0 auto;
+  transform: translateY(3.5em);
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+}
