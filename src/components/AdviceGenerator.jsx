@@ -1,5 +1,6 @@
 import AdviceDisplay from "./AdviceDisplay";
 import Button from "./Button";
+import "./AdviceGenerator.scss";
 import imgDivider from "../assets/pattern-divider-mobile.svg";
 import { useState } from "react";
 

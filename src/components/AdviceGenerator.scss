@@ -1,0 +1,19 @@
+@use "../variables.scss" as var;
+
+.generator {
+  background-color: var.$clr-grey-dark;
+  // TODO: Scale padding of advice generator container when reviewing desktop layout,
+  //            otherwise adjust via mediaqry.
+  //            Maybe a cheeky little container query test would be worth a learn here?
+  padding: 2.5em 1.5em 1.5em 1.5em;
+  border-radius: 0.625em;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.generator__divider-img {
+  padding: 1.5em 0;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}

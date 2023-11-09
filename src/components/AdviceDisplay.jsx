@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./AdviceDisplay.scss";
 
 // Takes an array of advice slips
 // If a single slip exists, it will display the data without any selection buttons

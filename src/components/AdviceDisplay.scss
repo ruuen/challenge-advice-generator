@@ -1,0 +1,21 @@
+@use "../variables.scss" as var;
+
+.generator__display {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.5em;
+  font-weight: var.$font-weight;
+}
+
+.generator__number {
+  color: var.$clr-green;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.225rem;
+}
+
+.generator__content {
+  color: var.$clr-cyan;
+  font-size: 1.5rem;
+}
