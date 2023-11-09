@@ -5,7 +5,7 @@ import "./AdviceDisplay.scss";
 // If a single slip exists, it will display the data without any selection buttons
 // If multiple advice slips exist, displays two selection buttons to change index of rendered advice slip forwards/backwards
 // Multiple advice slips are returned from the Advice Slip API when calling their search endpoint, and I'll be adding a search function in future
-function AdviceDisplay({ adviceSlips }) {
+function AdviceDisplay({ adviceSlips, isLoading }) {
   const [selectedAdviceIndex, setSelectedAdviceIndex] = useState(0);
 
   const hasMultipleAdviceItems = adviceSlips.length > 1 ? true : false;
@@ -37,8 +37,10 @@ function AdviceDisplay({ adviceSlips }) {
       ) : (
         <></>
       )}
-      <h2 className="generator__number">{`Advice #${adviceSlips[selectedAdviceIndex].id}`}</h2>
-      <p className="generator__content">{`"${adviceSlips[selectedAdviceIndex].advice}"`}</p>
+      <div className="generator__content-wrapper">
+        <h2 className="generator__number">{`Advice #${adviceSlips[selectedAdviceIndex].id}`}</h2>
+        <p className="generator__content">{`"${adviceSlips[selectedAdviceIndex].advice}"`}</p>
+      </div>
       {hasMultipleAdviceItems ? (
         <button className="generator__arrow-button" onClick={selectNextAdvice}>
           Next

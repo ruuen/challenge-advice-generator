@@ -1,11 +1,14 @@
 @use "../variables.scss" as var;
 
 .generator__display {
+  font-weight: var.$font-weight;
+}
+
+.generator__content-wrapper {
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 1.5em;
-  font-weight: var.$font-weight;
 }
 
 .generator__number {
