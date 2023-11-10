@@ -5,6 +5,7 @@
 }
 
 .generator__content-wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -12,13 +13,29 @@
 }
 
 .generator__number {
+  visibility: visible;
+  opacity: 1;
   color: var.$clr-green;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.225rem;
+  transition: all 200ms ease;
+
+  &--hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
 .generator__content {
+  visibility: visible;
+  opacity: 1;
   color: var.$clr-cyan;
   font-size: clamp(1.5rem, 5vw, 1.75rem);
+  transition: all 200ms ease;
+
+  &--hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
 }

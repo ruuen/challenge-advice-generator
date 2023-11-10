@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./AdviceDisplay.scss";
+import LoadingSpinner from "./LoadingSpinner";
 
 // Takes an array of advice slips
 // If a single slip exists, it will display the data without any selection buttons
@@ -38,9 +39,19 @@ function AdviceDisplay({ adviceSlips, isLoading }) {
         <></>
       )}
       <div className="generator__content-wrapper">
-        <h2 className="generator__number">{`Advice #${adviceSlips[selectedAdviceIndex].id}`}</h2>
-        <p className="generator__content">{`"${adviceSlips[selectedAdviceIndex].advice}"`}</p>
+        <h2
+          className={`generator__number ${
+            isLoading ? "generator__number--hidden" : ""
+          }`}
+        >{`Advice #${adviceSlips[selectedAdviceIndex].id}`}</h2>
+        <p
+          className={`generator__content ${
+            isLoading ? "generator__content--hidden" : ""
+          }`}
+        >{`"${adviceSlips[selectedAdviceIndex].advice}"`}</p>
+        {isLoading ? <LoadingSpinner /> : <></>}
       </div>
+
       {hasMultipleAdviceItems ? (
         <button className="generator__arrow-button" onClick={selectNextAdvice}>
           Next

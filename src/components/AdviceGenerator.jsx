@@ -39,6 +39,7 @@ function AdviceGenerator() {
     }
 
     setAdviceSlips([{ ...data.slip }]);
+    setIsLoading(false);
   });
 
   useEffect(() => {
@@ -47,8 +48,6 @@ function AdviceGenerator() {
     // TODO: When search added, logic here will check whether search state contains user input to decide what endpoint should be called
     // TODO: Change error display from the glorious console.log to be shown in UI
     fetchAdviceData().catch((error) => console.log(error));
-
-    setIsLoading(false);
   }, [isLoading]);
 
   return (
