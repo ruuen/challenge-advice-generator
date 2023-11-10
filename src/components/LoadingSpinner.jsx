@@ -1,6 +1,8 @@
+import "./LoadingSpinner.scss";
+
 // Wraps a loading spinner animation
 function LoadingSpinner() {
-  return <div>LoadingSpinner</div>;
+  return <span className="loader"></span>;
 }
 
 export default LoadingSpinner;
