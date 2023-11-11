@@ -1,5 +1,5 @@
 import AdviceGenerator from "./components/AdviceGenerator";
-import ErrorBoundary from "./components/ErrorBoundary";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 import ErrorFallback from "./components/ErrorFallback";
 
 function App() {
