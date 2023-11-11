@@ -26,5 +26,8 @@
 
 .app-error__heading {
   padding-bottom: 1em;
-  font-size: 2rem;
+  font-size: 1.25rem;
+  color: var.$clr-green;
+  text-transform: uppercase;
+  letter-spacing: 0.225rem;
 }
