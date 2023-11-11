@@ -4,6 +4,7 @@ import "./AdviceGenerator.scss";
 import imgDividerMobile from "../assets/pattern-divider-mobile.svg";
 import imgDividerDesktop from "../assets/pattern-divider-desktop.svg";
 import { useCallback, useEffect, useState } from "react";
+import useThrowAsyncError from "./ErrorBoundary/useThrowAsyncError";
 
 // State is an array of advice slips to allow adding search functionality
 // Search may return multiple advice slips, which can then be cycled through by the user
@@ -27,6 +28,8 @@ function AdviceGenerator() {
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
+  const throwAsyncError = useThrowAsyncError();
+
   const fetchAdviceData = useCallback(async () => {
     const response = await fetch("https://api.adviceslip.com/advice");
     const data = await response.json();
@@ -46,8 +49,9 @@ function AdviceGenerator() {
     if (isLoading === false) return;
 
     // TODO: When search added, logic here will check whether search state contains user input to decide what endpoint should be called
-    // TODO: Change error display from the glorious console.log to be shown in UI
-    fetchAdviceData().catch((error) => console.log(error));
+    fetchAdviceData().catch((error) => {
+      throwAsyncError(error);
+    });
   }, [isLoading]);
 
   return (
