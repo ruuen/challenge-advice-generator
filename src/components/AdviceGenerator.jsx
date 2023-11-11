@@ -22,22 +22,33 @@ const initialAdviceState = [
   // },
 ];
 
+const initialErrorState = {
+  hasError: false,
+  errorMessage: "",
+};
+
 // Fetches advice slip data, stores advice & error state, passes down to components
 function AdviceGenerator() {
   const [adviceSlips, setAdviceSlips] = useState(initialAdviceState);
   const [isLoading, setIsLoading] = useState(false);
-  const [hasError, setHasError] = useState(false);
+  const [errorState, setErrorState] = useState(initialErrorState);
 
   const throwAsyncError = useThrowAsyncError();
 
   const fetchAdviceData = useCallback(async () => {
+    setErrorState(initialErrorState);
+
     const response = await fetch("https://api.adviceslip.com/advice");
     const data = await response.json();
 
-    // If a "message" field exists in Advice Slip API response, an error has occurred and data wasn't fetched
-    // TODO: Change error display from the glorious console.log to be shown in UI
+    // If a "message" field exists in Advice Slip API response, the API is returning an error message or couldn't find advice slips
     if (Object.keys(data).includes("message")) {
-      console.log(`Fetch error: ${data.message}`);
+      setErrorState({
+        hasError: true,
+        errorMessage: data.message.text,
+      });
+      setAdviceSlips([{ id: null, advice: "" }]);
+      setIsLoading(false);
       return;
     }
 
@@ -56,7 +67,11 @@ function AdviceGenerator() {
 
   return (
     <article className="generator">
-      <AdviceDisplay adviceSlips={adviceSlips} isLoading={isLoading} />
+      <AdviceDisplay
+        adviceSlips={adviceSlips}
+        isLoading={isLoading}
+        errorState={errorState}
+      />
       <div className="generator__divider">
         <picture>
           <source

@@ -6,10 +6,28 @@ import LoadingSpinner from "./LoadingSpinner";
 // If a single slip exists, it will display the data without any selection buttons
 // If multiple advice slips exist, displays two selection buttons to change index of rendered advice slip forwards/backwards
 // Multiple advice slips are returned from the Advice Slip API when calling their search endpoint, and I'll be adding a search function in future
-function AdviceDisplay({ adviceSlips, isLoading }) {
+function AdviceDisplay({ adviceSlips, isLoading, errorState }) {
   const [selectedAdviceIndex, setSelectedAdviceIndex] = useState(0);
-
   const hasMultipleAdviceItems = adviceSlips.length > 1 ? true : false;
+
+  const adviceNumberDisplay = !errorState.hasError ? (
+    <h2
+      className={`generator__number ${
+        isLoading ? "generator__number--hidden" : ""
+      }`}
+    >{`Advice #${adviceSlips[selectedAdviceIndex].id}`}</h2>
+  ) : (
+    <></>
+  );
+  const adviceTextDisplay = !errorState.hasError ? (
+    <p
+      className={`generator__content ${
+        isLoading ? "generator__content--hidden" : ""
+      }`}
+    >{`"${adviceSlips[selectedAdviceIndex].advice}"`}</p>
+  ) : (
+    <p className={`generator__content`}>{`${errorState.errorMessage}`}</p>
+  );
 
   function selectPreviousAdvice() {
     setSelectedAdviceIndex((prevIndex) => {
@@ -39,19 +57,10 @@ function AdviceDisplay({ adviceSlips, isLoading }) {
         <></>
       )}
       <div className="generator__content-wrapper">
-        <h2
-          className={`generator__number ${
-            isLoading ? "generator__number--hidden" : ""
-          }`}
-        >{`Advice #${adviceSlips[selectedAdviceIndex].id}`}</h2>
-        <p
-          className={`generator__content ${
-            isLoading ? "generator__content--hidden" : ""
-          }`}
-        >{`"${adviceSlips[selectedAdviceIndex].advice}"`}</p>
+        {adviceNumberDisplay}
+        {adviceTextDisplay}
         {isLoading ? <LoadingSpinner /> : <></>}
       </div>
-
       {hasMultipleAdviceItems ? (
         <button className="generator__arrow-button" onClick={selectNextAdvice}>
           Next
