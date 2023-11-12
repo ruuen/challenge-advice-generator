@@ -1,0 +1,33 @@
+@use "../variables.scss" as var;
+
+// TODO: Reassess this - probably an SCSS mixin to provide more of these shared app
+//          container style to both error & generator classes?
+.app-error {
+  $padding-y-scale: clamp(2.75em, 9.5%, 3.25em);
+  $padding-x-scale: clamp(1.5em, 6.25vw, 3.25em);
+  padding: $padding-y-scale $padding-x-scale;
+
+  background-color: var.$clr-grey-dark;
+  box-shadow: 30px 50px 80px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 0.625em;
+  max-width: 550px;
+  margin: 0 auto;
+  text-align: center;
+  color: var.$clr-cyan;
+
+  > .app-error__content:last-child {
+    padding-bottom: 0;
+  }
+
+  > .app-error__content {
+    padding-bottom: 0.5em;
+  }
+}
+
+.app-error__heading {
+  padding-bottom: 1em;
+  font-size: 1.25rem;
+  color: var.$clr-green;
+  text-transform: uppercase;
+  letter-spacing: 0.225rem;
+}
