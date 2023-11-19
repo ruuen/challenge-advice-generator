@@ -2,9 +2,13 @@ import "./Button.scss";
 import imgDiceIcon from "../assets/icon-dice.svg";
 
 // Reusable submit/search button
-function Button({ handleClick }) {
+function Button({ handleClick, label }) {
   return (
-    <button className="generator__button" onClick={handleClick}>
+    <button
+      className="generator__button"
+      onClick={handleClick}
+      aria-label={label}
+    >
       <img
         src={imgDiceIcon}
         alt=""
