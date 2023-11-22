@@ -45,7 +45,7 @@ function AdviceDisplay({ adviceSlips, isLoading, errorState }) {
 
   // TODO: When search func is being built, the prev/next buttons for multiple slips needs styling & icons
   return (
-    <div className="generator__display">
+    <div className="generator__display" aria-live="assertive">
       {hasMultipleAdviceItems ? (
         <button
           className="generator__arrow-button"

@@ -90,7 +90,7 @@ function AdviceGenerator() {
         </picture>
       </div>
       <div className="generator__action-buttons">
-        <Button handleClick={() => setIsLoading(true)} />
+        <Button handleClick={() => setIsLoading(true)} label="New advice" />
       </div>
     </article>
   );
